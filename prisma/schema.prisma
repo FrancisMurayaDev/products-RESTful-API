@@ -12,3 +12,13 @@ datasource db {
   provider = "postgresql"
   url      = env("DATABASE_URL")
 }
+
+model Product {
+  id                Int     @id @default(autoincrement())
+  productTitle      String
+  productDescription String
+  unitsLeft         Int
+  pricePerUnit      Float
+  isOnOffer         Boolean
+  createdAt         DateTime @default(now())
+}
