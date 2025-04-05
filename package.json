@@ -16,6 +16,18 @@
     "prisma": "^6.5.0"
   },
   "devDependencies": {
-    "nodemon": "^3.1.9"
-  }
+    "@types/express": "^5.0.1",
+    "@types/node": "^22.14.0",
+    "nodemon": "^3.1.9",
+    "ts-node": "^10.9.2",
+    "typescript": "^5.8.3"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/FrancisMurayaDev/products-RESTful-API.git"
+  },
+  "bugs": {
+    "url": "https://github.com/FrancisMurayaDev/products-RESTful-API/issues"
+  },
+  "homepage": "https://github.com/FrancisMurayaDev/products-RESTful-API#readme"
 }
