@@ -36,3 +36,8 @@ export const deleteProduct = async (req: Request, res: Response) => {
   await prisma.product.delete({ where: { id } });
   res.status(204).send();
 };
+
+export const getOfferProducts = async (_req: Request, res: Response) => {
+  const products = await prisma.product.findMany({ where: { isOnOffer: true } });
+  res.json(products);
+};
