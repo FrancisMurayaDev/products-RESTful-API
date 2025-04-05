@@ -12,3 +12,11 @@ export const getProduct = async (req: Request, res: Response) => {
   if (!product) return res.status(404).json({ message: 'No product was found.' });
   res.json(product);
 };
+
+export const createProduct = async (req: Request, res: Response) => {
+  const { productTitle, productDescription, unitsLeft, pricePerUnit, isOnOffer } = req.body;
+  const product = await prisma.product.create({
+    data: { productTitle, productDescription, unitsLeft, pricePerUnit, isOnOffer },
+  });
+  res.status(201).json(product);
+};
