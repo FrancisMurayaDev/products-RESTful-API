@@ -7,13 +7,33 @@ export const getAllProducts = async (_req: Request, res: Response) => {
   res.json(products);
 };
 
-export const getProduct = async (req: Request, res: Response) => {
-  const id = Number(req.params.id);
-  const product = await prisma.product.findUnique({ where: { id } });
-  if (!product)
-    return res.status(404).json({ message: "No product was found." });
-  res.json(product);
+// export const getProduct = async (req: Request, res: Response) => {
+//   const id = Number(req.params.id);
+//   const product = await prisma.product.findUnique({ where: { id } });
+//   if (!product)
+//     return res.status(404).json({ message: "No product was found." });
+//   res.json(product);
+// };
+
+
+export const getProduct = async (req: Request, res: Response): Promise<void> => {
+  try {
+    const { id } = req.params;
+    const product = await prisma.product.findUnique({
+      where: { id: parseInt(id) },
+    });
+
+    if (!product) {
+      res.status(404).json({ message: "Product not found" });
+      return;
+    }
+
+    res.status(200).json(product);
+  } catch (error) {
+    res.status(500).json({ error: "Server error" });
+  }
 };
+
 
 export const createProduct = async (req: Request, res: Response) => {
   const {
