@@ -1,5 +1,5 @@
 import express from "express";
-import router from "./routes";
+import router from "./routes.js";
 
 const app = express();
 const PORT = process.env.PORT || 4000;
@@ -8,5 +8,5 @@ app.use(express.json());
 app.use("/api", router);
 
 app.listen(PORT, () => {
-  console.log(`🚀 Server running at http://localhost:${PORT}/api`);
+  console.log(`Server running at http://localhost:${PORT}/api`);
 });
