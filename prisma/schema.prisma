@@ -20,5 +20,4 @@ model Product {
   unitsLeft         Int
   pricePerUnit      Float
   isOnOffer         Boolean
-  createdAt         DateTime @default(now())
 }
